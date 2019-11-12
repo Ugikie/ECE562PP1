@@ -18,3 +18,7 @@ def receiveData(codeword, divisor, message, sequence):
     else:
         print('Nicely done')
     return remainder
+
+
+def gitHubTest():
+    print('test success')
