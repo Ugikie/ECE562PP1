@@ -36,7 +36,5 @@ def verifyRemainder(codeword, divisor):
     remainder = mod2divide(codeword,divisor)
 
     if ((int(remainder) * 1) != 0):
-        print('There was an error in the division')
-    else:
-        print('Nicely done')
+        print('Verifier: There was an error in the division')
     return remainder

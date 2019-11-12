@@ -22,28 +22,31 @@ print(decodedMessage) '''
 
 from Verifier import *
 from Receiver import *
+from Alter import *
 
-message = input('Enter a k-bit message of 0s and 1s: ')
-sequence = input('Enter an (n+1)-bit generator pattern: ')
+message = input('Generator: Enter a k-bit message of 0s and 1s: ')
+sequence = input('Generator: Enter an (n+1)-bit generator pattern: ')
 
 while ((int(sequence) * 1) == 0 ):
-    print('Error: Cannot use an all-zero sequence! Please try again')
-    sequence = input('Enter an (n+1)-bit generator pattern: ') 
+    print('Generator Error: Cannot use an all-zero sequence! Please try again')
+    sequence = input('Generator: Enter an (n+1)-bit generator pattern: ') 
 
 dividend = message.ljust(len(message)+len(sequence)-1,'0')
 divisor = sequence
 
-print('Dataword is: ' + message)
-print('Augmented Dataword is: ' + dividend)
-print('n-bit Sequence is: ' + divisor)
+print('Generator: Dataword is: ' + message)
+print('Generator: Augmented Dataword is: ' + dividend)
+print('Generator: n-bit Sequence is: ' + divisor)
 
 remainder = mod2divide(dividend,divisor)
 
-print(dividend + ' / ' + divisor + ' Has remainder: ' + remainder)
+print('Generator: ' + dividend + ' / ' + divisor + ' Has remainder: ' + remainder)
 
 codeword = message + remainder
-print('The Codeword to be sent is: ' + codeword)
+print('Generator: The Codeword to be sent is: ' + codeword)
+print(' ')
 
+codeword = alter(codeword)
 verified = verifyRemainder(codeword,divisor)
 
 if ((int(verified) * 1) == 0):
