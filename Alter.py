@@ -53,9 +53,8 @@ def alter(sequence):
                     errseq = input('Alter: Type Error Sequence of only "0"s and "1"s: ')
             sequence = errseq
         elif intyp == 'r':
-            snr = input('Alter: What is the desired SNR (dB) level?')
+            snr = input('Alter: What is the desired SNR (dB) level? ')
             sequence = snr_noise(sequence,snr)
-            print(sequence)
     
         return sequence
 

@@ -32,9 +32,10 @@ def mod2divide(dvd,dvs):
     
     return remainder
 
-def verifyRemainder(codeword, divisor):
-    remainder = mod2divide(codeword,divisor)
+def verifyRemainder(alteredCodeword, divisor):
+    remainder = mod2divide(alteredCodeword,divisor)
 
     if ((int(remainder) * 1) != 0):
         print('Verifier: There was an error in the division')
+        print('Verifier: Altered Codeword: ' + alteredCodeword + '| Remainder: ' + mod2divide(alteredCodeword,divisor)[0:len(divisor)-1])
     return remainder

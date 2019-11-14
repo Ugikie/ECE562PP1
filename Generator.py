@@ -46,8 +46,7 @@ codeword = message + remainder
 print('Generator: The Codeword to be sent is: ' + codeword)
 print(' ')
 
-codeword = alter(codeword)
-verified = verifyRemainder(codeword,divisor)
+alteredCodeword = alter(codeword)
+verified = verifyRemainder(alteredCodeword,divisor)
 
-if ((int(verified) * 1) == 0):
-    receiveData(codeword,divisor, message, sequence)
+receiveData(alteredCodeword,divisor, codeword, sequence)
