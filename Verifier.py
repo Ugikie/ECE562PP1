@@ -1,4 +1,3 @@
-
 def string_xor(a,b):
     output = ''
     for k in range(len(a)):

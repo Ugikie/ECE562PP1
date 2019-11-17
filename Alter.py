@@ -58,7 +58,6 @@ def alter(sequence):
     
         return sequence
 
-# def snr_noise(sequence,SNR)
 
 
 
