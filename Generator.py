@@ -45,8 +45,20 @@ print('Generator: ' + dividend + ' / ' + divisor + ' Has FCS Bits: ' + remainder
 codeword = message + remainder
 print('Generator: The Codeword to be sent is: ' + codeword)
 print(' ')
+nextError = 'c'
+
 
 alteredCodeword = alter(codeword)
 verified = verifyRemainder(alteredCodeword,divisor)
 
 receiveData(alteredCodeword,divisor, codeword, sequence)
+
+while ((nextError != 'y') | (nextError != 'n')):
+    nextError = input('\nProgram End: Would you like to use a new alter sequence? "y" or "n" ')
+    if (nextError == 'y'):
+        alteredCodeword = alter(codeword)
+        verified = verifyRemainder(alteredCodeword,divisor)
+        receiveData(alteredCodeword,divisor, codeword, sequence)
+    elif (nextError == 'n'):
+        break
+

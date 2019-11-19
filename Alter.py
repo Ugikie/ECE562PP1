@@ -43,7 +43,7 @@ def alter(sequence):
     intyp = 'r'
        
     while((intyp != 'n') | (intyp != 'm') | (intyp != 'r') | (intyp != 's')):
-        intyp = input('Alter: What type of error is desired? (No error "n", Manual error "m", Received Error "r", SNR Error "s"): ') 
+        intyp = input('Alter: What type of error is desired? (No error "n", Manual error "m", Received Sequence "r", SNR Error "s"): ') 
         if intyp == 'n':
             sequence = sequence
         elif intyp == 'm':
@@ -65,6 +65,7 @@ def alter(sequence):
             snr = input('Alter: What is the desired SNR (dB) level? ')
             sequence = snr_noise(sequence,snr)
         return sequence
+
 
 
 
