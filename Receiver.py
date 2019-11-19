@@ -19,13 +19,13 @@ def receiveData(alteredCodeword, divisor, codeword, sequence):
         return
 
     if ((int(remainder) * 1) != 0):
-        print('Receiver: Able to detect an error that was present: ' + remainder)
+        print('Receiver: Able to detect an error that was present. FCS Bits: ' + remainder + ' Error Pattern: ' + string_xor(alteredCodeword,codeword))
         printSequences(alteredCodeword,codeword,divisor)
         return
     else:
         for i in range(len(alteredCodeword)):
             if (alteredCodeword[i] != codeword[i]):
-                print('Receiver: Unable to detect an error that was present: ' + remainder)
+                print('Receiver: Unable to detect an error that was present. FCS Bits: ' + remainder)
                 printSequences(alteredCodeword,codeword,divisor)
                 return    
         

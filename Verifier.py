@@ -36,5 +36,5 @@ def verifyRemainder(alteredCodeword, divisor):
 
     if ((int(remainder) * 1) != 0):
         print('Verifier: There was an error in the division')
-        print('Verifier: Altered Codeword: ' + alteredCodeword + '| Remainder: ' + mod2divide(alteredCodeword,divisor)[0:len(divisor)-1])
+        print('Verifier: Altered Codeword: ' + alteredCodeword + '| FCS Bits: ' + mod2divide(alteredCodeword,divisor)[0:len(divisor)-1])
     return remainder

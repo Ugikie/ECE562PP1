@@ -3,6 +3,7 @@
 import random
 import numpy as np
 import math
+from Verifier import string_xor
 
 # Initially, sequence & snr_dB in 'strings'
 def snr_noise(seq,snr_dB):
@@ -41,8 +42,8 @@ def seq_condition(sequence):
 def alter(sequence):
     intyp = 'r'
        
-    while((intyp != 'n') | (intyp != 'm') | (intyp != 'r')):
-        intyp = input('Alter: What type of error is desired? (No error "n", Manual error "m", Random error "r"): ') 
+    while((intyp != 'n') | (intyp != 'm') | (intyp != 'r') | (intyp != 's')):
+        intyp = input('Alter: What type of error is desired? (No error "n", Manual error "m", Received Error "r", SNR Error "s"): ') 
         if intyp == 'n':
             sequence = sequence
         elif intyp == 'm':
@@ -51,11 +52,18 @@ def alter(sequence):
                 errseq = input('Alter: Type Error Sequence (Must be same length as codeword): ')
                 while (seq_condition(errseq) != True):
                     errseq = input('Alter: Type Error Sequence of only "0"s and "1"s: ')
-            sequence = errseq
+            sequence = string_xor(sequence,errseq)
         elif intyp == 'r':
+            #sequence = snr_noise(sequence,snr)
+            errseq = ' '
+            while(len(errseq) != len(sequence)):
+                errseq = input('Alter: Enter the received error pattern (Must be same length as codeword): ')
+                while (seq_condition(errseq) != True):
+                    errseq = input('Alter: Type Error Sequence of only "0"s and "1"s: ')
+            sequence = errseq
+        elif intyp == 's':
             snr = input('Alter: What is the desired SNR (dB) level? ')
             sequence = snr_noise(sequence,snr)
-    
         return sequence
 
 

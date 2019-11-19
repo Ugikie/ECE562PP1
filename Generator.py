@@ -40,7 +40,7 @@ print('Generator: n-bit Sequence is: ' + divisor)
 
 remainder = mod2divide(dividend,divisor)
 
-print('Generator: ' + dividend + ' / ' + divisor + ' Has remainder: ' + remainder)
+print('Generator: ' + dividend + ' / ' + divisor + ' Has FCS Bits: ' + remainder)
 
 codeword = message + remainder
 print('Generator: The Codeword to be sent is: ' + codeword)
